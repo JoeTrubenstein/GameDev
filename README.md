@@ -1,2 +1,2 @@
-# GameDev
-random musings that may one day contribute to a larger project
+# Albertito's Dungeon
+a very simple game intended to familiarize oneself with Python control flow.
