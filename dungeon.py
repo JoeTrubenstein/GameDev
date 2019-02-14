@@ -1,65 +1,65 @@
 import random
 import time
 
-pName = input("enter your name:  ")
-stats = {"name": pName, "health": 100}
-victories = 0
+player_name = input("enter your name:  ")
+player_stats = {"name": player_name, "health": 100}
+victory_count = 0
 
-print ("hello " + pName)
+print ("hello " + player_name)
 time.sleep(1)
-print ("you have " + str(stats["health"]) + " health")
+print ("you have " + str(player_stats["health"]) + " health")
 time.sleep(1)
 print ("defeat 3 enemies to best the dungeon")
 
 while True:
     time.sleep(1)
-    pStep = input("walk left, right, or straight? (enter l, r, or s...)")
+    player_step = input("walk left, right, or straight? (enter l, r, or s...)")
 
-    if pStep == "l" or pStep == "r" or pStep == "s":
+    if player_step == "l" or player_step == "r" or player_step == "s":
         print ("you continue down the corridor")
         time.sleep(1)
-        hitMiss = random.randint(1,2)
+        hit_or_miss = random.randint(1,2)
     else:
         print ("invalid input")
         time.sleep(1)
         continue
 
     while True:
-        theWay = random.randint(1,3)
+        the_way = random.randint(1,3)
         
-        if theWay == 1:
+        if the_way == 1:
             print("You encounter a skeleton!")
             time.sleep(1)
             print("rolling for damage")
-            eDmg = random.randint(0,50)
-        elif theWay == 2:
+            enemy_damage = random.randint(0,50)
+        elif the_way == 2:
             print("You encounter an orc!")
             time.sleep(1)
             print("rolling for damage")
-            eDmg = random.randint(0,50)
-        elif theWay == 3:
+            enemy_damage = random.randint(0,50)
+        elif the_way == 3:
             print("You encounter a Dragon!")
             time.sleep(1)
             print("rolling for damage")
-            eDmg = random.randint(0,100)
+            enemy_damage = random.randint(0,100)
 
-        if hitMiss == 1:
+        if hit_or_miss == 1:
             time.sleep(1)
-            print ("enemy hits for " + str(eDmg))
-            stats["health"] = stats["health"] - eDmg
+            print ("enemy hits for " + str(enemy_damage))
+            player_stats["health"] = player_stats["health"] - enemy_damage
             time.sleep(1)
         else:
             time.sleep(1)
             print ("enemy defeated")
             time.sleep(1)
-            victories = victories+1
-            print ("victory count: " + str(victories))
+            victory_count = victory_count +1
+            print ("victory count: " + str(victory_count))
     
         time.sleep(1)
-        print ("player health is " + str(stats["health"]))
+        print ("player health is " + str(player_stats["health"]))
         break
         
-    if stats["health"] < 0:
+    if player_stats["health"] < 0:
         time.sleep(1)
         print("you died...")
         break
@@ -67,7 +67,7 @@ while True:
         time.sleep(1)
         print ("you escape with your life")
 
-    if victories == 3:
+    if victory_count == 3:
         time.sleep(1)
         print("you have bested the dungeon!")
         break
